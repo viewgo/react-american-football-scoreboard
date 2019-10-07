@@ -12,7 +12,7 @@ function App() {
   const [secondsTens, setSecondsTens] = useState(0);
   const [seconds, setSeconds] = useState(0);
 
-  const [quarter, setQuarter] = useState(4);
+  const [quarter, setQuarter] = useState(1);
 
   const [isGameOver, setIsGameOver] = useState(false);
   const final = "F I N A L";
