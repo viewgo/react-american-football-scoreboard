@@ -12,7 +12,10 @@ function App() {
   const [secondsTens, setSecondsTens] = useState(0);
   const [seconds, setSeconds] = useState(0);
 
-  const [quarter, setQuarter] = useState(1);
+  const [quarter, setQuarter] = useState(4);
+
+  const [isGameOver, setIsGameOver] = useState(false);
+  const final = "F I N A L";
 
   setTimeout(function() {
     if (minutes > 0 || secondsTens > 0 || seconds > 0) {
@@ -33,8 +36,11 @@ function App() {
         setSecondsTens(0);
         setQuarter(quarter + 1);
       }
+      else{
+        setIsGameOver(true);
+      }
     }
-  }, 10);
+  }, 1);
 
   return (
     <div className="container">
@@ -48,8 +54,7 @@ function App() {
             <div className="home__score">{homeScore}</div>
           </div>
           <div className="timer">
-            {minutes} : {secondsTens}
-            {seconds}
+            {isGameOver === true ? final : `${minutes} : ${secondsTens}${seconds}`}
           </div>
           <div className="away">
             <h2 className="away__name">Tigers</h2>
