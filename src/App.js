@@ -12,6 +12,8 @@ function App() {
   const [secondsTens, setSecondsTens] = useState(0);
   const [seconds, setSeconds] = useState(0);
 
+  const [quarter, setQuarter] = useState(1);
+
   setTimeout(function() {
     if (minutes > 0 || secondsTens > 0 || seconds > 0) {
       if (seconds === 0 && secondsTens === 0) {
@@ -25,8 +27,14 @@ function App() {
         setSeconds(seconds - 1);
       }
     } else {
+      if (quarter < 4) {
+        setMinutes(15);
+        setSeconds(0);
+        setSecondsTens(0);
+        setQuarter(quarter + 1);
+      }
     }
-  }, 1000);
+  }, 10);
 
   return (
     <div className="container">
@@ -48,7 +56,7 @@ function App() {
             <div className="away__score">{awayScore}</div>
           </div>
         </div>
-        <BottomRow />
+        <BottomRow _quarter={quarter} />
       </section>
       <section className="buttons">
         <div className="homeButtons">

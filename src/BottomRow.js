@@ -1,7 +1,11 @@
 import React from "react";
 import "./App.css";
 
-const BottomRow = () => {
+export class  BottomRow extends React.Component {
+
+  render(){
+  console.log(this.props)
+
   return (
     <div className="bottomRow">
       <div className="down">
@@ -18,10 +22,11 @@ const BottomRow = () => {
       </div>
       <div className="quarter">
         <h3 className="quarter__title">Quarter</h3>
-        <div className="quarter__value">4</div>
+        <div className="quarter__value">{this.props._quarter}</div>
       </div>
     </div>
   );
 };
+}
 
 export default BottomRow;
